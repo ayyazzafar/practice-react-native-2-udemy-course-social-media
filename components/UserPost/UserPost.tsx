@@ -51,40 +51,20 @@ export default function UserPost({
         />
       </View>
 
-      <View
-        style={{
-          marginLeft: 10,
-          flexDirection: 'row',
-          gap: 30,
-        }}>
-        <View style={{flexDirection: 'row', gap: 3}}>
+      <View style={UserPostStyle.userPostStats}>
+        <View style={UserPostStyle.userPostStatButton}>
           <FontAwesomeIcon icon={faHeart} color="#79869F" />
-          <Text
-            style={{
-              color: '#79869F',
-            }}>
-            {likes}
-          </Text>
+          <Text style={UserPostStyle.userPostStatText}>{likes}</Text>
         </View>
 
-        <View style={{flexDirection: 'row', gap: 3}}>
+        <View style={UserPostStyle.userPostStatButton}>
           <FontAwesomeIcon icon={faMessage} color="#79869F" />
-          <Text
-            style={{
-              color: '#79869F',
-            }}>
-            {likes}
-          </Text>
+          <Text style={UserPostStyle.userPostStatText}>{comments}</Text>
         </View>
 
-        <View style={{flexDirection: 'row', gap: 3}}>
+        <View style={UserPostStyle.userPostStatButton}>
           <FontAwesomeIcon icon={faBookmark} color="#79869F" />
-          <Text
-            style={{
-              color: '#79869F',
-            }}>
-            {likes}
-          </Text>
+          <Text style={UserPostStyle.userPostStatText}>{bookmarks}</Text>
         </View>
       </View>
     </View>

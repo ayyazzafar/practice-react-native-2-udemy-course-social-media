@@ -36,4 +36,13 @@ export default StyleSheet.create({
     paddingBottom: 20,
     borderBottomColor: '#EFF2F6',
   },
+  userPostStats: {
+    marginLeft: 10,
+    flexDirection: 'row',
+    gap: 30,
+  },
+  userPostStatButton: {flexDirection: 'row', gap: 3},
+  userPostStatText: {
+    color: '#79869F',
+  },
 });
