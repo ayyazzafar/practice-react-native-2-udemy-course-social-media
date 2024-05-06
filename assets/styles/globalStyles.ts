@@ -28,6 +28,13 @@ const globalStyle = StyleSheet.create({
     fontSize: 6,
     fontFamily: getFontFamily('Inter', '600'),
   },
+  userStoryContainer: {
+    marginLeft: 20,
+    marginHorizontal: 28,
+  },
+  userPostContainer: {
+    marginHorizontal: 24,
+  },
 });
 
 export default globalStyle;
