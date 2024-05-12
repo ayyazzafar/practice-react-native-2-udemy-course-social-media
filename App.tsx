@@ -16,17 +16,15 @@ import UserStory from './components/UserStory/UserStory';
 import UserPost from './components/UserPost/UserPost';
 
 export default function App() {
-  const [userStoriesFetchedCounter, setUserStoriesFetchedCounter] = useState(0);
   const [userStoriesRenderedData, setUserStoriesRenderedData] = useState<any[]>(
     [],
   );
-  const [userStoriesPageSize, setUserStoriesPageSize] = useState(5);
+  const [userStoriesPageSize] = useState(5);
   const [isLoadingUserStories, setIsLoadingUserStories] = useState(false);
   const [userStoriesCurrentPage, setUserStoriesCurrentPage] = useState(1);
 
-  const [userPostsFetchedCounter, setUserPostsFetchedCounter] = useState(0);
   const [userPostsRenderedData, setUserPostsRenderedData] = useState<any[]>([]);
-  const [userPostsPageSize, setUserPostsPageSize] = useState(5);
+  const [userPostsPageSize] = useState(5);
   const [isLoadingUserPosts, setIsLoadingUserPosts] = useState(false);
   const [userPostsCurrentPage, setUserPostsCurrentPage] = useState(1);
 
@@ -48,6 +46,14 @@ export default function App() {
       userStoriesPageSize,
     );
     setUserStoriesRenderedData(getInitialData);
+
+    // userPosts
+    let getInitialDataPosts = pagination(
+      userPosts,
+      userPostsCurrentPage,
+      userPostsPageSize,
+    );
+    setUserPostsRenderedData(getInitialDataPosts);
   }, []);
 
   const userStories = [
@@ -274,8 +280,29 @@ export default function App() {
               </View>
             </>
           }
-          data={userPosts}
+          data={userPostsRenderedData}
           showsVerticalScrollIndicator
+          keyExtractor={item => item.id.toString()}
+          onEndReachedThreshold={0.5}
+          onEndReached={() => {
+            if (isLoadingUserPosts) {
+              return null;
+            }
+            setIsLoadingUserPosts(true);
+            const contentToAppend = pagination(
+              userPosts,
+              userPostsCurrentPage + 1,
+              userPostsPageSize,
+            );
+
+            if (contentToAppend.length > 0) {
+              setUserPostsCurrentPage(userPostsCurrentPage + 1);
+              setUserPostsRenderedData((prevData: any) => [
+                ...prevData,
+                ...contentToAppend,
+              ]);
+            }
+          }}
           renderItem={item => {
             return (
               <View style={globalStyle.userPostContainer}>
