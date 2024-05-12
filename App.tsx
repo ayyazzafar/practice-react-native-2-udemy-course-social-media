@@ -3,6 +3,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import React, {useEffect, useState} from 'react';
 import {
   Alert,
+  Dimensions,
   FlatList,
   SafeAreaView,
   StyleSheet,
@@ -16,6 +17,8 @@ import UserStory from './components/UserStory/UserStory';
 import UserPost from './components/UserPost/UserPost';
 
 export default function App() {
+  const [screenData, setScreenData] = useState<any>(Dimensions.get('screen'));
+
   const [userStoriesRenderedData, setUserStoriesRenderedData] = useState<any[]>(
     [],
   );
@@ -54,6 +57,8 @@ export default function App() {
       userPostsPageSize,
     );
     setUserPostsRenderedData(getInitialDataPosts);
+
+
   }, []);
 
   const userStories = [
