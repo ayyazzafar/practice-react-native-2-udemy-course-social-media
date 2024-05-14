@@ -2,7 +2,6 @@ import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import React, {useEffect, useState} from 'react';
 import {
-  Alert,
   Dimensions,
   FlatList,
   SafeAreaView,
@@ -11,10 +10,10 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Title from './components/Title/Title';
 import globalStyle from './assets/styles/globalStyles';
-import UserStory from './components/UserStory/UserStory';
+import Title from './components/Title/Title';
 import UserPost from './components/UserPost/UserPost';
+import UserStory from './components/UserStory/UserStory';
 
 export default function App() {
   const [screenData, setScreenData] = useState<any>(Dimensions.get('screen'));
@@ -57,8 +56,6 @@ export default function App() {
       userPostsPageSize,
     );
     setUserPostsRenderedData(getInitialDataPosts);
-
-
   }, []);
 
   const userStories = [
