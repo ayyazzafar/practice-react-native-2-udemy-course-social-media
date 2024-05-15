@@ -6,6 +6,7 @@ import {faEllipsisH} from '@fortawesome/free-solid-svg-icons';
 import UserPostStyle from './UserPost.style';
 import {faHeart} from '@fortawesome/free-regular-svg-icons/faHeart';
 import {faBookmark, faMessage} from '@fortawesome/free-regular-svg-icons';
+import {horizontalScale, scaleFontSize} from '../../assets/styles/scaling';
 
 export default function UserPost({
   firstName,
@@ -30,7 +31,10 @@ export default function UserPost({
     <View style={UserPostStyle.userPostContainer}>
       <View style={UserPostStyle.user}>
         <View style={UserPostStyle.userContainer}>
-          <UserProfileImage profileImage={profileImage} imageDimensions={45} />
+          <UserProfileImage
+            profileImage={profileImage}
+            imageDimensions={horizontalScale(48)}
+          />
           <View style={UserPostStyle.userTextContainer}>
             <Text style={UserPostStyle.username}>
               {firstName} {lastName}
@@ -38,7 +42,11 @@ export default function UserPost({
             {location && <Text style={UserPostStyle.location}>{location}</Text>}
           </View>
         </View>
-        <FontAwesomeIcon icon={faEllipsisH} color="#79869F" size={24} />
+        <FontAwesomeIcon
+          icon={faEllipsisH}
+          color="#79869F"
+          size={scaleFontSize(24)}
+        />
       </View>
 
       <View style={UserPostStyle.postImage}>
