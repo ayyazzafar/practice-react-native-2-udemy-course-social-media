@@ -6,7 +6,7 @@ import {
   scaleFontSize,
 } from '../../assets/styles/scaling';
 
-const globalStyle = StyleSheet.create({
+const homeStyle = StyleSheet.create({
   header: {
     marginLeft: horizontalScale(27),
     marginRight: horizontalScale(17),
@@ -46,4 +46,4 @@ const globalStyle = StyleSheet.create({
   },
 });
 
-export default globalStyle;
+export default homeStyle;

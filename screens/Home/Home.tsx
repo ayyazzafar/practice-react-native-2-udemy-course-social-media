@@ -14,13 +14,15 @@ import {
 } from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
-import globalStyle from './Home.style';
+import homeStyles from './Home.style';
 import {scaleFontSize} from '../../assets/styles/scaling';
 import Title from '../../components/Title/Title';
 import UserPost from '../../components/UserPost/UserPost';
 import UserStory from '../../components/UserStory/UserStory';
+import globalStyle from '../../assets/styles/globalStyles';
+import {Routes} from '../../navigation/routes';
 
-export default function App() {
+export default function Home({navigation}: {navigation: any}) {
   const [screenData, setScreenData] = useState<any>(Dimensions.get('screen'));
 
   const [userStoriesRenderedData, setUserStoriesRenderedData] = useState<any[]>(
@@ -230,28 +232,30 @@ export default function App() {
   ];
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={globalStyle.backgroundWhite}>
       <StatusBar barStyle={'dark-content'} />
       <View>
         <FlatList
           ListHeaderComponent={
             <>
-              <View style={globalStyle.header}>
+              <View style={homeStyles.header}>
                 <Title title="Let's Explore" />
-                <TouchableOpacity style={globalStyle.messageIcon}>
+                <TouchableOpacity
+                  style={homeStyles.messageIcon}
+                  onPress={() => navigation.navigate(Routes.Profile)}>
                   <FontAwesomeIcon
                     size={scaleFontSize(20)}
                     icon={faEnvelope}
                     style={styles.fontAwesomeIcon}
                   />
 
-                  <View style={globalStyle.messageNumberContainer}>
-                    <Text style={globalStyle.messageNumber}>3</Text>
+                  <View style={homeStyles.messageNumberContainer}>
+                    <Text style={homeStyles.messageNumber}>3</Text>
                   </View>
                 </TouchableOpacity>
               </View>
 
-              <View style={globalStyle.userStoryContainer}>
+              <View style={homeStyles.userStoryContainer}>
                 <FlatList
                   onEndReachedThreshold={0.5}
                   onEndReached={() => {
@@ -313,7 +317,7 @@ export default function App() {
           }}
           renderItem={item => {
             return (
-              <View style={globalStyle.userPostContainer}>
+              <View style={homeStyles.userPostContainer}>
                 <UserPost
                   bookmarks={item.item.bookmarks}
                   comments={item.item.comments}

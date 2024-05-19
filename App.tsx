@@ -3,7 +3,6 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import 'react-native-gesture-handler';
 import MainNavigation from './navigation/MainNavigation';
-
 export default function App() {
   return (
     <NavigationContainer>
