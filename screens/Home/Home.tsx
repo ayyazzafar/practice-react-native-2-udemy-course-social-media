@@ -240,9 +240,7 @@ export default function Home({navigation}: {navigation: any}) {
             <>
               <View style={homeStyles.header}>
                 <Title title="Let's Explore" />
-                <TouchableOpacity
-                  style={homeStyles.messageIcon}
-                  onPress={() => navigation.navigate(Routes.Profile)}>
+                <TouchableOpacity style={homeStyles.messageIcon}>
                   <FontAwesomeIcon
                     size={scaleFontSize(20)}
                     icon={faEnvelope}
