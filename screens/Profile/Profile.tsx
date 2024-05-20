@@ -43,6 +43,7 @@ export default function Profile({
             <Text style={profileStyles.statAmount}>30M</Text>
             <Text style={profileStyles.statType}>Followers</Text>
           </View>
+          <View style={profileStyles.statBorder}></View>
 
           <View>
             <Text style={profileStyles.statAmount}>100</Text>
